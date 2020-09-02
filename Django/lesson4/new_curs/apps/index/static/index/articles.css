@@ -1,0 +1,129 @@
+div.articles_stati{
+	min-height:50px;
+	margin-top:10px;
+	margin-left:20px; 
+}
+div.articles_stati_title{
+	font-size:24px;
+	color:#fff;
+}
+div.articles_stati_autor{
+	color:#b5b5b5;
+}
+div.articles_stati_text{
+	margin-top:20px;
+	margin-left:20px;
+	margin-right:20px;
+	margin-bottom:20px;
+	min-height:200px;
+	width:calc(100% - 40px);
+}
+div.articles_stati_text_text{
+	margin-top:20px;
+	border:1px solid #828381;
+	width:calc(100% - 2px);
+	min-height:400px;
+	background: #313131;
+	border-radius: 5px; 
+}
+div.autor_articles_stati_text{
+	float: left;
+	display: inline-block;
+	border:1px solid #828381;
+	min-height: 400px;
+	width: 150px;
+	margin-top:10px;
+	margin-left:20px;
+	border-radius:5px;
+}
+div.text_articles_stati_text{
+	display: inline-block;
+	width: calc(100% - 180px);
+	min-height: 500px;
+
+}
+div.articles_comment{
+	display: inline-block;
+	float: left;
+	border:1px solid #828381;
+	min-height: 300px;
+	width: 150px;
+	margin-top:10px;
+	margin-left:20px;
+	border-radius:5px;
+
+}
+div.text_articles_comment{
+	display: inline-block;
+	margin-top:10px;
+	margin-left:20px; 
+	width: calc(100% - 192px)
+	margin-bottom:20px;
+}
+div.articles_comment_comment{
+	display: inline-block;
+	float: left;
+	border:1px solid #828381;
+	min-height: 200px;
+	width: 150px;
+	margin-top:10px;
+	margin-left:20px;
+	border-radius:5px;
+}
+div.articles_stati_text_comment{
+	margin-top:20px;
+	border:1px solid #828381;
+	width:calc(100% - 2px);
+	min-height:250px;
+	background: #313131;
+	border-radius: 5px; 
+}
+
+
+label.articles_comment{
+	color:#bbbbbb;
+}
+label.articles_comment:hover{
+	text-decoration: underline;
+}
+
+p.rticles_stati_text{
+	display: inline-block;
+	color:#bbbbbb;
+	margin-left:10px;
+
+}
+
+
+
+a.articles_stati_text{
+	display: block;
+	margin-left:10px;
+	margin-top:10px;
+	color:#797d7d;
+	font-size:12px;
+	font-style:italic;
+}
+a.articles_stati_text_a{
+	margin-left:10px;
+	margin-top:10px;
+	font-size:12px;
+	font-style:italic;
+}
+span.articles_comment{
+
+	display: block;
+	color: #fff;
+	margin-top:10px;
+	margin-left:10px
+}
+span.autor_name{
+	display: block;
+	font-size:16px;
+	color:#fff;
+	margin-top:10px;
+	margin-left:10px;
+}
+span.autor_name:hover{
+	text-decoration: underline;
+}

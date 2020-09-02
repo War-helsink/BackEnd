@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+
+{% block title %}{{tema.name_class}}{% endblock %}
+{% block admin_console  %}{% endblock admin_console  %}
+ 
+
+{% block url %}{% url 'magges:index'%}{% endblock url %}
+
+
+{% block content %}
+				{% load static %}
+				{% for a in product %}
+					<div class="content_stati">
+						<a href="{% url 'magges:product' a.id %}"><h3 class="title_content">{{a.name_product}}</h3></a>
+						<div class="content_autor">
+							<header class="content_autor">
+								<span class="autor2">{{a.pub_date}}</span>
+								<span class="autor2">Цена:{{a.shop}}</span>
+								
+								
+							</header>
+							<div class="content_text">
+								<div class="img"><img class="img_content" src="{% static 'image/title.png' %}" alt="Картинка"></div>
+								<div class="text_content">
+								{{a.opsanie}}
+								</div>
+							</div>
+							<footer class="content_footer">
+								<div class="content_bottom"><a href="{% url 'magges:tema' a.ClassProduct_id %}"><span class="content_bottom">{{a.ClassProduct.name_class}}</span></a></div>
+								<div class="content_bottom"><a href="{% url 'magges:index' %}"><span class="content_bottom">Купить...</span></a></div>
+							</footer>
+
+						</div>
+					</div>
+					{% endfor %}
+ 
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block sitebar %}
+
+				{% for a in temas %}
+						<dl class="sitebar_spisock">
+								<dt><a class="sitebar" href="{% url 'magges:tema' a.id  %}">{{a.name_class}}:</a></dt>	
+						</dl>
+				{% endfor %}
+
+{% endblock sitebar %}
+
+{% block menu_sitebar2 %}{% endblock menu_sitebar2  %}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'index/authorization.css'  %}" type="text/css">
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+
+
+	<div class="articles_stati_text_text">
+			<div class="authorization_form">
+				<a href="#"><h1>Регистрация</h1></a>
+				{% if text %}
+
+				<span class="error">{{text}}</span>
+
+				{% endif %}
+				<form method="POST" action="{% url 'index:registration_def' %}">
+					{% csrf_token %}
+					<label for="name">Ваше имя</label><br>
+					<input id="name" type="text" name="name" required="" placeholder="Имя"><br>
+					<label for="login">Введите свой логин:</label><br>
+					<input id="login" type="text" name="login" required="" placeholder="Логин"><br>
+					<label for="email">Електроная почта:</label><br>
+					<input id="email" type="text" name="email" required="" placeholder="Email"><br>
+					<label for="number">Номер телефона:</label><br>
+					<input id="number" type="text" name="number" required="" placeholder="Номер"><br>
+					<label for="password">Введите пароль:</label><br>
+					<input id="password" type="password" name="pass" required="" placeholder="Пароль"><br>
+					<label for="password1">Повторите пароль:</label><br>
+					<input id="password1" type="password" name="pass1" required="" placeholder="Повтрный пароль"><br>
+					<input class="submit" type="submit" value="Регистрация" name="submit">
+				</form>
+			</div>
+		</div>
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block sitebar %}
+
+				{% for a in lets_bet_get %}
+						<dl class="sitebar_spisock">
+								<dt><a class="sitebar" href="{% url 'index:tema' a.id %}">{{a.name_title}}:</a></dt>
+								<dd><a class="sitebar" href="{% url 'index:tema' a.id %}">{{a.articles_set.count}}</a></dd>
+						</dl>
+				{% endfor %}
+
+{% endblock %}
+{% block sitebar2 %}
+		{% for a in popoler %}
+						<dl class="sitebar_spisock">
+								<dt><a class="sitebar" href="{% url 'index:article' a.id %}">{{a.articeles_title}}:</a></dt>
+								<dd><a class="sitebar" href="{% url 'index:article' a.id %}">{{a.articles_int}}</a></dd>
+						</dl>
+		{% endfor %}
+{% endblock %}

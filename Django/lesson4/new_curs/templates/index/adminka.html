@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+
+{% block title %}{{sessions.name_acaunt}}{% endblock %}
+
+
+
+
+
+{% block content %}
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block sitebar %}
+
+			{% for a in lets_bet_get %}
+					<dl class="sitebar_spisock">
+						<dt><a class="sitebar" href="{% url 'index:tema' a.id %}">{{a.name_title}}:</a></dt>
+						<dd><a class="sitebar" href="{% url 'index:tema' a.id %}">{{a.articles_set.count}}</a></dd>
+					</dl>
+			{% endfor %}
+
+{% endblock %}
+
+{% block sitebar2 %}
+			{% for a in popoler %}
+					<dl class="sitebar_spisock">
+						<dt><a class="sitebar" href="{% url 'index:article' a.id %}">{{a.articeles_title}}:</a></dt>
+						<dd><a class="sitebar" href="{% url 'index:article' a.id %}">{{a.articles_int}}</a></dd>
+					</dl>
+			{% endfor %}
+{% endblock %}

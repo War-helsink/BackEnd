@@ -1,0 +1,35 @@
+div.articles_stati_text_text{
+	border:1px solid #828381;
+	width:calc(100% - 22px);
+	min-height:400px;
+	background: #313131;
+	border-radius: 5px;
+	margin: 0px 10px 
+}
+div.authorization_form{
+	display: block;
+	margin:20px;
+}
+label{
+	color: #fff;
+}
+input{
+	width: 220px;
+}
+input.submit{
+	margin-top:10px;
+	width: 230px;
+	margin-bottom: 30px;
+}
+h1{
+	color: #fff;
+}
+h1:hover{
+	text-decoration: underline;
+}
+span.error{
+	color:red;
+	display: block;
+	font-size: 20px;
+	margin-bottom: 10px;
+}

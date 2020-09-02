@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+
+{% block title %}{{articles.articeles_title}}{% endblock %}
+	
+
+	{% load static %}
+
+{% block link %}<link rel="stylesheet" href="{% static 'index/articles.css' %}" type="text/css">{% endblock %}
+
+
+{% block content %}
+
+	<div class="articles_stati">
+		<div class="articles_stati_title">
+			{{articles.articeles_title}}
+		</div>
+		<div class="articles_stati_autor">
+			<a href="#" class="articles_stati_text_a">{{articles.articles_name_autor}}</a>
+			<a href="#" class="articles_stati_text_a">{{articles.pub_date}}</a>
+			<a href="#" class="articles_stati_text_a">{{articles.articles_int}}</a>
+			<a href="#" class="articles_stati_text_a">{{articles.comment_set.count}}</a>
+		</div>
+	</div>
+	<!--  Тут начало следущей части страницы  -->
+	<div class="articles_stati_text">
+		
+
+
+		
+		<div class="articles_stati_text_text">
+			<div class="autor_articles_stati_text">
+				<!-- Тут дание акаунта  -->
+
+				<span class="articles_comment">Автор:</span>
+				<a href=""><span class="autor_name">{{articles.User_acaunt.name_acaunt}}</span></a>
+
+			</div>
+			<div class="text_articles_stati_text">
+				<a href="#" class="articles_stati_text">{{articles.pub_date}} Лайков:{{articles.articles_like}} Дизлайков:{{articles.articles_unlike}}</a><br>
+				<p class="rticles_stati_text">
+					{{articles.articles_text}}
+				</p>
+			</div>
+		</div>
+		
+
+
+
+
+		{% if comment %}
+			{% for a in comment %}
+				<div class="articles_stati_text_comment">
+					<div class="articles_comment_comment">
+						<!-- Тут дание акаунта  -->
+						<span class="articles_comment">Автор:</span>
+						<a href="#"><span class="autor_name">{{a.User_acaunt.name_acaunt}}</span></a>
+					</div>
+					<div class="text_articles_comment">
+						<a href="#" class="articles_stati_text">{{a.pub_date}} Лайков:{{a.articles_like}} Дизлайков:{{a.articles_unlike}}</a><br>
+						<p class="rticles_stati_text">
+							{{a.comment_text}}
+						</p>
+					</div>
+				</div>
+
+			{% endfor %}
+		{% else %}
+
+		<!-- Доработать если нет коментариев -->
+
+		{% endif %}
+
+
+
+
+		
+
+
+
+		{% if sessions %}
+		<div class="articles_stati_text_text">
+			<div class="articles_comment">
+				<!-- Тут дание акаунта  -->
+				<span class="articles_comment">Вы:</span>
+				<a href="{% url 'index:adminka' %}"><span class="autor_name">{{sessions.name_acaunt}}</span></a>
+			</div>
+			<div class="text_articles_comment">
+				<form method="POST" action="{% url 'index:comment_save' articles.id %}">
+					{% csrf_token %}
+					<label  class="articles_comment" for="text">Текст коментария:</label><br>
+					<textarea id="text" name="text" required="" placeholder="Текст комментария" cols="30" rows="10"></textarea><br>
+					<input type="submit" value="Оставить" name="submit">
+				</form>
+
+			</div>
+		</div>
+		{% else %}
+
+			<div class="articles_stati_text_text">
+					
+					<div class="articles_comment">
+					<!-- Тут дание акаунта  -->
+					<span class="articles_comment">Нет акаутнта</span><br>
+				</div>
+				<div class="text_articles_comment">
+					<span class="articles_comment">Авторизируйтесь чтобы оставить коментариий</span><br>
+					<form>
+						<label  class="articles_comment" for="text">Текст коментария:</label><br>
+						<textarea id="text" placeholder="Текст комментария" cols="30" rows="10"></textarea><br>
+						<input type="submit" value="Оставить">
+					</form>
+
+				</div>
+			</div>
+
+		{% endif %}
+
+
+
+
+
+
+
+
+
+
+	</div>
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+{% block sitebar %}
+
+				{% for a in lets_bet_get %}
+						<dl class="sitebar_spisock">
+								<dt><a class="sitebar" href="{% url 'index:tema' a.id %}">{{a.name_title}}:</a></dt>
+								<dd><a class="sitebar" href="{% url 'index:tema' a.id %}">{{a.articles_set.count}}</a></dd>
+						</dl>
+				{% endfor %}
+
+{% endblock %}
+
+{% block sitebar2 %}
+		{% for a in popoler %}
+						<dl class="sitebar_spisock">
+								<dt><a class="sitebar" href="{% url 'index:article' a.id %}">{{a.articeles_title}}:</a></dt>
+								<dd><a class="sitebar" href="{% url 'index:article' a.id %}">{{a.articles_int}}</a></dd>
+						</dl>
+		{% endfor %}
+{% endblock %}

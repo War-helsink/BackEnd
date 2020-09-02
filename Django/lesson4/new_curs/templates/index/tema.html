@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+
+{% block title %}{{tema.name_title}}{% endblock %}
+
+
+{% block content %}
+				<div class="tema">{{tema.name_title}}</div>			
+	
+
+				{% load static %}
+				{% for a in articles %}
+					<div class="content_stati">
+						<a href="{% url 'index:article' a.id %}"><h3 class="title_content">{{a.articeles_title}}</h3></a>
+						<div class="content_autor">
+							<header class="content_autor">
+								<span class="autor1">{{a.articles_name_autor}}</span> 
+								<span class="autor2">{{a.pub_date}}</span>
+								<span class="autor3">{{a.comment_set.count}}</span> 
+								<span class="autor4">{{a.articles_int}}</span>
+							</header>
+							<div class="content_text">
+								<div class="img"><img class="img_content" src="{% static 'image/title.png' %}" alt="Картинка"></div>
+								<div class="text_content">
+								{{a.articles_text}}
+								</div>
+							</div>
+							<footer class="content_footer">
+								<div class="content_bottom"><a href="{% url 'index:tema' a.Temp_Articles_id %}"><span class="content_bottom">{{a.Temp_Articles.name_title}}</span></a></div>
+								<div class="content_bottom"><a href="{% url 'index:article' a.id %}"><span class="content_bottom">Продолжить...</span></a></div>
+							</footer>
+
+						</div>
+					</div>
+					{% endfor %}
+ 
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+{% block sitebar %}
+
+				{% for a in lets_bet_get %}
+						<dl class="sitebar_spisock">
+								<dt><a class="sitebar" href="{% url 'index:tema' a.id %}">{{a.name_title}}:</a></dt>
+								<dd><a class="sitebar" href="{% url 'index:tema' a.id %}">{{a.articles_set.count}}</a></dd>
+						</dl>
+				{% endfor %}
+
+{% endblock %}
+{% block sitebar2 %}
+		{% for a in popoler %}
+						<dl class="sitebar_spisock">
+								<dt><a class="sitebar" href="{% url 'index:article' a.id %}">{{a.articeles_title}}:</a></dt>
+								<dd><a class="sitebar" href="{% url 'index:article' a.id %}">{{a.articles_int}}</a></dd>
+						</dl>
+		{% endfor %}
+{% endblock %}

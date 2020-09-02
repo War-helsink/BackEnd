@@ -1,0 +1,355 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>{% block title %}Форум для друзей!!!{% endblock %}</title>
+	<!-- link css,js  -->
+	<link rel="stylesheet" href="{% static 'index/index.text.css' %}" type="text/css">
+	<link rel="shortcut icon" href="{% static 'image/title.png'%}" type="image/x-icon">
+
+	{% block link %}
+
+	{% endblock %}
+</head>
+<body>
+	<div>
+
+
+
+
+
+
+		<!-- header  -->
+		<div class="header">
+			
+			{% block admin_console  %}
+			<!-- admin consol -->
+			<header class="header">
+
+				{%  if sessions %}
+				<div class="header_header">
+					<div class="div_header text_radius"><a href="{% url 'index:unauthorization' %}"><span class="header_text">Выйти</span></a></div>
+					<div class="div_header"><a href="{% url 'index:adminka' %}"><span class="header_text">{{sessions.name_acaunt}}</span></a></div>
+				</div>
+				{% else %}
+
+				<div class="header_header">
+					<div class="text_radius div_header"><a href="{% url 'index:registration' %}"><span class="header_text">Регестрация</span></a></div>
+					<div class="div_header"><a href="{% url 'index:authorization' %}"><span class="header_text">Войти</span></a></div>
+				</div>
+
+
+
+				{% endif  %}
+
+
+			</header>
+			{%  endblock admin_console %}
+
+
+			<!-- header block -->
+			<div class="header_div">
+				<div class="header_arkadii">
+					<a href="{% block url %}{% url 'index:index'%}{% endblock %}" class="not_a">
+						<pre id="header_arkadii_pre" class="header_arkadii_pre">	
+   _____         __                .___.__.__    _________.__  __                            
+  /  _  \_______|  | _______     __| _/|__|__|  /   _____/|__|/  |_  ____       __ _______   
+ /  /_\  \_  __ \  |/ /\__  \   / __ | |  |  |  \_____  \ |  \   __\/ __ \     |  |  \__  \  
+/    |    \  | \/    <  / __ \_/ /_/ | |  |  |  /        \|  ||  | \  ___/     |  |  // __ \_
+\____|__  /__|  |__|_ \(____  /\____ | |__|__| /_______  /|__||__|  \___  > /\ |____/(____  /
+        \/           \/     \/      \/                 \/               \/  \/            \/ </pre>
+					</a>
+				</div>
+			</div>
+
+
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!-- articles -->
+		<div class="articles">
+
+
+			<!-- forms articles -->
+			<div class="articles_form">
+
+				
+
+
+				<!-- content block -->
+				<div class="content">
+					{% block content %}
+
+					<div class="content_stati">
+						<a href=""><h3 class="title_content">Названия статти</h3></a>
+						<div class="content_autor">
+							<header class="content_autor">
+								<span class="autor1">Я артор . </span> 
+								<span class="autor2">Время</span>
+								<span class="autor3"> . Коментарии</span> 
+								<span class="autor4">просмотров</span>
+							</header>
+							<div class="content_text">
+								<div class="img"></div>
+								<div class="text_content">
+								text: content<br>
+								dkfnbkgfndu kdjfbidf ijbidmnbmnijbidj
+								bvcbnk kidfnbidfm, kbofdm knbfdl
+								fbmifdnbd iob dkjnk 
+								fmbidmnkvmbodbiofdkbmdihbcnb kdnfgbikdo
+								dbkimdfibmdi nibndfkjbid kboidjbiv
+								bkdnfbifd knibmlmbifdn dfhfd
+								hdfhdf
+								h
+								dfgdf
+								gdfgrehgtgjhgfj
+								dfgdfksudgfdsfysdbyfsggfukh
+								dfighdeisdug fhjidohgudibn 8whgidhfughdijid
+								hdfihgrhfgn idjhgidbb ueyghdfuh 8dhgiud
+								</div>
+							</div>
+							<footer class="content_footer">
+								<div class="content_bottom"><a href=""><span class="content_bottom">Названия темы</span></a></div>
+								<div class="content_bottom"><a href=""><span class="content_bottom">Продолжить...</span></a></div>
+							</footer>
+
+						</div>
+						
+						
+
+					</div>
+					
+
+
+
+					<div class="content_stati">
+						<a href=""><h3 class="title_content">Названия статти</h3></a>
+						<div class="content_autor">
+							<header class="content_autor">
+								<span class="autor1">Я артор . </span> 
+								<span class="autor2">Время</span>
+								<span class="autor3"> . Коментарии</span> 
+								<span class="autor4">просмотров</span>
+							</header>
+							<div class="content_text">
+								<div class="img"></div>
+								<div class="text_content">
+								text: content<br>
+								dkfnbkgfndu kdjfbidf ijbidmnbmnijbidj
+								bvcbnk kidfnbidfm, kbofdm knbfdl
+								fbmifdnbd iob dkjnk 
+								fmbidmnkvmbodbiofdkbmdihbcnb kdnfgbikdo
+								dbkimdfibmdi nibndfkjbid kboidjbiv
+								bkdnfbifd knibmlmbifdn dfhfd
+								hdfhdf
+								h
+								dfgdf
+								gdfgrehgtgjhgfj
+								dfgdfksudgfdsfysdbyfsggfukh
+								dfighdeisdug fhjidohgudibn 8whgidhfughdijid
+								hdfihgrhfgn idjhgidbb ueyghdfuh 8dhgiud
+								</div>
+							</div>
+							<footer class="content_footer">
+								<div class="content_bottom"><a href=""><span class="content_bottom">Названия темы</span></a></div>
+								<div class="content_bottom"><a href=""><span class="content_bottom">Продолжить...</span></a></div>
+							</footer>
+
+						</div>
+					</div>
+					<div class="content_stati conetnt_margin">
+						
+						<h1>Привет как тебе мой сайт</h1>
+						
+					</div>
+					<div class="content_stati">
+						<h3 class="title_content"><a href="">Названия статти</a></h3>
+						<div class="content_autor">
+							<header class="content_autor">
+								<span class="autor1">Я артор . </span> 
+								<span class="autor2">Время</span>
+								<span class="autor3"> . Коментарии</span> 
+								<span class="autor4">просмотров</span>
+							</header>
+							<div class="content_text">
+								<div class="img"></div>
+								<div class="text_content">
+								text: content<br>
+								dkfnbkgfndu kdjfbidf ijbidmnbmnijbidj
+								bvcbnk kidfnbidfm, kbofdm knbfdl
+								fbmifdnbd iob dkjnk 
+								fmbidmnkvmbodbiofdkbmdihbcnb kdnfgbikdo
+								dbkimdfibmdi nibndfkjbid kboidjbiv
+								bkdnfbifd knibmlmbifdn dfhfd
+								hdfhdf
+								h
+								dfgdf
+								gdfgrehgtgjhgfj
+								dfgdfksudgfdsfysdbyfsggfukh
+								dfighdeisdug fhjidohgudibn 8whgidhfughdijid
+								hdfihgrhfgn idjhgidbb ueyghdfuh 8dhgiud
+								</div>
+							</div>
+							<footer class="content_footer">
+								<div class="content_bottom"><a href=""><span class="content_bottom">Названия темы</span></a></div>
+								<div class="content_bottom"><a href=""><span class="content_bottom">Продолжить...</span></a></div>
+							</footer>
+
+						</div>
+
+
+					</div>
+					<div class="content_stati conetnt_margin"></div>
+					<div class="content_stati"></div>
+
+					{% endblock %}
+				</div>
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<!--  statibar  -->
+ 				<div class="sitebar">
+					
+					<div class="sitebar_menu">
+						<div class="sitebar_name"><span class="sitebar_name">Темы форума</span></div>
+						<div class="sitebar_tem">
+							{% block sitebar %}
+							<dl class="sitebar_spisock">
+								<dt><a href="">Смешное видио:</a></dt>
+								<dd><a href="">34</a></dd>
+							</dl>
+							<dl class="sitebar_spisock">
+								<dt><a href="">Взлом:</a></dt>
+								<dd><a href="">100</a></dd>
+							</dl>
+							<dl class="sitebar_spisock">
+								<dt><a href="">Хакрф:</a></dt>
+								<dd><a href="">1000</a></dd>
+							</dl>
+							{% endblock %}
+						</div>
+					</div>
+
+
+
+					{% block menu_sitebar2 %}
+					<div class="sitebar_menu">
+						<div class="sitebar_name"><span class="sitebar_name">Популярное</span></div>
+						<div class="sitebar_tem">
+						{% block sitebar2 %}
+							<dl class="sitebar_spisock">
+								<dt><a href="">Смешное видио:</a></dt>
+								<dd><a href="">34</a></dd>
+							</dl>
+							<dl class="sitebar_spisock">
+								<dt><a href="">Взлом:</a></dt>
+								<dd><a href="">100</a></dd>
+							</dl>
+							<dl class="sitebar_spisock">
+								<dt><a href="">Хакрф:</a></dt>
+								<dd><a href="">1000</a></dd>
+							</dl>
+						{% endblock %}
+
+						</div>
+					</div>
+					{% endblock menu_sitebar2 %}
+
+
+				
+
+				</div>
+
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!-- footer  -->
+		<div class="footer">
+			<footer class="footer">
+				<span class="footer">For best friends</span><br>
+				<span class="footer">Сайт созданый с подержкой никого!!!</span><br>
+				<span class="footer">Имя создателя: <span class="red">Нычыпорчук Аркадий Олександровыч</span></span><br>
+				<span class="footer">Контакты розрабочика: <a class="img" href="https://www.instagram.com/__dj_unstoppable__/?hl=uk"><span class="red">+380957904602</span> <img class="img" src="{% static 'image/title.png'%}" arl="Мой инстаграм"></a></span><br>
+			</footer>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+</body>
+</html>

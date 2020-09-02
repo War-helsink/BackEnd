@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}{{article.articles_title}}{% endblock %}
+
+{% block content %} 
+	<h2>{{article.articles_title}}</h2>
+	<p>{{article.articles_text}}</p>
+	<em>{{article.pug_date}}</em>
+	<hr>
+	{% if comment %}
+
+		{% for a in comment %}
+		<p>
+
+			<strong>{{a.author_name}}</strong><br>
+			{{a.comment_text}}
+
+		</p>
+
+		{% endfor %}
+
+	{% else %}
+		<p>Комментарии не найдены</p>
+	{% endif %}
+	<hr>
+
+	<form method="POST" action="{% url 'articles:leave_comment' article.id %}">
+		{% csrf_token %}
+		<input type="text" name="name" required="" placeholder="Ваше имя"><br>
+		<textarea name="text" required="" placeholder="Текст комментария" cols="30" rows="10"></textarea><br>
+		<button type="submit">Оставить коментарий</button>
+	</form>
+{% endblock %}

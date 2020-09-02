@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'index/authorization.css' %}" type="text/css">
+{% endblock %}
+
+
+
+
+
+
+
+{% block content %}
+
+
+		<div class="articles_stati_text_text">
+			<div class="authorization_form">
+				<a href="#"><h1>Вход</h1></a>
+				{% if text %}
+
+				<span class="error">{{text}}</span>
+
+				{% endif %}
+				<form method="POST" action="{% url 'index:authorization_def' %}">
+					{% csrf_token %}
+					<label for="login">Введите свой логин:</label><br>
+					<input id="login" type="text" name="login" required="" placeholder="Логин"><br>
+					<label for="password">Введите пароль:</label><br>
+					<input id="password" type="password" name="pass" required="" placeholder="Пароль"><br>
+					<input class="submit" type="submit" value="Вход" name="submit">
+				</form>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block sitebar %}
+
+				{% for a in lets_bet_get %}
+						<dl class="sitebar_spisock">
+								<dt><a class="sitebar" href="{% url 'index:tema' a.id %}">{{a.name_title}}:</a></dt>
+								<dd><a class="sitebar" href="{% url 'index:tema' a.id %}">{{a.articles_set.count}}</a></dd>
+						</dl>
+				{% endfor %}
+
+{% endblock %}
+{% block sitebar2 %}
+		{% for a in popoler %}
+						<dl class="sitebar_spisock">
+								<dt><a class="sitebar" href="{% url 'index:article' a.id %}">{{a.articeles_title}}:</a></dt>
+								<dd><a class="sitebar" href="{% url 'index:article' a.id %}">{{a.articles_int}}</a></dd>
+						</dl>
+		{% endfor %}
+{% endblock %}
