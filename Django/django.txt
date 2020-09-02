@@ -1,6 +1,0 @@
-django-admin startproject [server] --+ создать первий проект с именем [server] в даною деректорию
-python3 -m django --version  --+ посмотреть версию моделя django
-
-для запуска сервера нужно зайти в корень созданого сервера и запустить python3 manage.py runserver
-python3 manage.py startapp [articles] --+ создать новою страничку.
-
